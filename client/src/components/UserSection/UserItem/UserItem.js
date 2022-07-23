@@ -3,13 +3,13 @@ export const UserItem = ({ user }) => {
         <tr>
             <td>
                 <img src={user.imageUrl}
-                    alt="Peter's profile" className="image" />
+                    alt={`${user.firstName}'s profile`} className="image" />
             </td>
             <td>{user.firstName}</td>
             <td>{user.lastName}</td>
             <td>{user.email}</td>
-            <td>0812345678</td>
-            <td>June 28, 2022</td>
+            <td>{user.phoneNumber}</td>
+            <td>{user.createdAt}</td>
 
             <td className="actions">
                 <button className="btn edit-btn" title="Edit">
@@ -42,17 +42,3 @@ export const UserItem = ({ user }) => {
         </tr>
     );
 };
-
-// {
-//     "firstName": "Ivan",
-//         "lastName": "Ivanov",
-//             "email": "ivan@abv.bg",
-//                 "imageUrl": "https://assets1.cbsnewsstatic.com/hub/i/2018/11/06/0c1af1b8-155a-458e-b105-78f1e7344bf4/2018-11-06t054310z-1334124005-rc1be15a8050-rtrmadp-3-people-sexiest-man.jpg",
-//                     "phoneNumber": "0899999999",
-//                         "address": {
-//         "country": "Bulgaria",
-//             "city": "Sofia",
-//                 "street": "Hristo Botev",
-//                     "streetNumber": "69"
-//     }
-// }
