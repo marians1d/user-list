@@ -1,6 +1,6 @@
 import { UserItem } from '../UserItem/UserItem';
 
-export const UserTable = ({ users }) => {
+export const UserTable = ({ users, onAction }) => {
     return (
         <table className="table">
             <thead>
@@ -59,7 +59,7 @@ export const UserTable = ({ users }) => {
             </thead>
             <tbody>
                 {/* <!-- Table row component --> */}
-                {users.map(user => <UserItem user={user} />)}
+                {users.map(user => <UserItem key={user._id} onAction={onAction} user={user} />)}
             </tbody>
         </table>
     );
