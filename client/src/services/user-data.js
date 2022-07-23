@@ -5,5 +5,5 @@ export function  getAll() {
 }
 
 export function getOne(userId) {
-    return fetch`${baseURL}/users/${userId}`;
+    return fetch(`${baseURL}/users/${userId}`).then((res => res.json()));
 }

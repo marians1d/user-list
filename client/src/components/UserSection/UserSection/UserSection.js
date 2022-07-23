@@ -3,6 +3,7 @@ import { getAll, getOne } from '../../../services/user-data';
 
 import { Spinner } from '../../Spinner/Spinner';
 import { Search } from '../Search/Search';
+import { UserForm } from '../UserAdd/UserForm';
 import { userActions } from '../UserConstants';
 import { UserDetails } from '../UserDetails/UserDetails';
 import { UserTable } from '../UserTable/UserTable';
@@ -45,7 +46,9 @@ export const UserSection = () => {
             <div className="table-wrapper">
                 {/* <!-- Overlap components  --> */}
 
-                {userAction.action === userActions.details && <UserDetails onClose={closeHandler} />}
+                {userAction.action === userActions.details && <UserDetails user={userAction.user} onClose={closeHandler} />}
+
+                {userAction.action === userActions.add && <UserForm onClose={closeHandler} />}
 
                 {isLoading && <Spinner />}
 
