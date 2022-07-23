@@ -48,7 +48,7 @@ export const UserSection = () => {
 
                 {userAction.action === userActions.details && <UserDetails user={userAction.user.user} onClose={closeHandler} />}
 
-                {userAction.action === userActions.add && <UserForm onClose={closeHandler} />}
+                {userAction.action === userActions.add && <UserForm onClose={closeHandler} setUsers={setUsers} />}
 
                 {isLoading && <Spinner />}
 
