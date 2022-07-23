@@ -46,7 +46,7 @@ export const UserSection = () => {
             <div className="table-wrapper">
                 {/* <!-- Overlap components  --> */}
 
-                {userAction.action === userActions.details && <UserDetails user={userAction.user} onClose={closeHandler} />}
+                {userAction.action === userActions.details && <UserDetails user={userAction.user.user} onClose={closeHandler} />}
 
                 {userAction.action === userActions.add && <UserForm onClose={closeHandler} />}
 

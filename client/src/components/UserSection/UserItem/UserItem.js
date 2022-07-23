@@ -1,4 +1,4 @@
-import { userActions } from "../UserConstants";
+import { userActions } from '../UserConstants';
 
 export const UserItem = ({ user, onAction }) => {
     return (
