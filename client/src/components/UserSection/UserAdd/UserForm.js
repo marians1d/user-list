@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { add } from '../../../services/user-data';
 
-export const UserForm = ({ user, onClose, setUser }) => {
+export const UserForm = ({ user, onClose, updateUsers }) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -36,7 +36,9 @@ export const UserForm = ({ user, onClose, setUser }) => {
         e.preventDefault();
 
         
-        add(formData).then((data) => setUser(oldUsers => [...oldUsers, data]));
+        add(formData).then((data) => {
+            updateUsers(data);
+        });
     };
 
     return (
@@ -154,7 +156,7 @@ export const UserForm = ({ user, onClose, setUser }) => {
                         </div>
                         <div id="form-actions">
                             <button id="action-save" className="btn" type="submit">Save</button>
-                            <button id="action-cancel" className="btn" type="button">
+                            <button onClick={onClose} id="action-cancel" className="btn" type="button">
                                 Cancel
                             </button>
                         </div>

@@ -5,6 +5,7 @@ import { Spinner } from '../../Spinner/Spinner';
 import { Search } from '../Search/Search';
 import { UserForm } from '../UserAdd/UserForm';
 import { userActions } from '../UserConstants';
+import { UserDelete } from '../UserDelete/UserDelete';
 import { UserDetails } from '../UserDetails/UserDetails';
 import { UserTable } from '../UserTable/UserTable';
 
@@ -37,6 +38,12 @@ export const UserSection = () => {
         setUserAction({ user: null, action: null });
     };
 
+    const updateUsers = (user) => {
+        setUsers(oldUsers => {
+            oldUsers.users = [...oldUsers.users];
+        });
+    };
+
     return (
         <section className="card users-container">
 
@@ -48,7 +55,9 @@ export const UserSection = () => {
 
                 {userAction.action === userActions.details && <UserDetails user={userAction.user.user} onClose={closeHandler} />}
 
-                {userAction.action === userActions.add && <UserForm onClose={closeHandler} setUsers={setUsers} />}
+                {userAction.action === userActions.add && <UserForm onClose={closeHandler} updateUsers={updateUsers} />}
+
+                {userAction.action === userActions.delete && <UserDelete user={userAction.user.user} onClose={closeHandler} updateUsers={updateUsers} />}
 
                 {isLoading && <Spinner />}
 

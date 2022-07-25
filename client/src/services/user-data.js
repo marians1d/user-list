@@ -30,6 +30,18 @@ export async function add(user) {
     } catch (error) {
         console.log(error);
     }
-    
+}
 
+export async function deleteUser(userId) {
+    try {
+        const res = await fetch(`${baseURL}/users/${userId}`, {
+            method: 'DELETE'
+        });
+
+        const data = await res.json();
+
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
 }
